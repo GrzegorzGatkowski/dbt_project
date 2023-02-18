@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: staging
+    database: learning-370118
+    schema: dezoomcamp
+
+    tables:
+    - name: green
+    - name: yellow
+    - name: fhv
+
+
