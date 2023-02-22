@@ -1,5 +1,6 @@
 {{ config(materialized='view') }}
 
+
 SELECT 
     -- identifiers
     {{ dbt_utils.surrogate_key(['dispatching_base_num', 'pickup_datetime']) }} as tripid,
@@ -15,6 +16,8 @@ SELECT
     
     
 FROM {{source('staging','fhv') }}
+
+Where PUlocationID is not null and DOlocationID is not null
 
 -- dbt build --m <model.sql> --var 'is_test_run: false'
 {% if var('is_test_run', default=true) %}
